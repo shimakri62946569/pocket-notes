@@ -1,0 +1,65 @@
+.roboto_500{
+    font-family: roboto;
+    font-weight: 500;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ffff;
+}
+
+.container > p{
+    font-size: 1.8rem;
+    position: relative;
+    width: 90%;
+    top: 3%;
+    left: 7%;
+}
+
+.btn_and_notes{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 7.5%;
+    height: 87.5%;
+    width: 100%;
+}
+
+.notes{
+    position: relative;
+    top: 3%;
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-left: 10%;
+}
+
+.items{
+    /* margin-left: 10%; */
+    /* padding-left: 5%; */
+    width: 91%;
+    height: 90%;
+}
+
+.btn_and_notes > button{
+    margin-left: 15%;
+    width: 70%;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    color: #ffff;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 2rem;
+    border: none;
+}
+
+.btn_and_notes > button > span{
+    margin-right: -10%;
+    font-size: 1.5rem;
+}
