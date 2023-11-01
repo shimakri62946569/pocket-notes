@@ -3,3 +3,58 @@
     height: 100%;
     width: 100%;
 }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    bottom: 5%;
+
+}
+
+.description, .heading, .footer{
+    width: 29rem;
+    text-align: center;
+    font-family: roboto;
+    font-weight: 400;
+}
+
+.heading{
+    font-size: 2rem;
+}
+
+.description{
+    font-size: 1.01rem;
+    color: #292929;
+    
+}
+
+.content > img{
+    height: 15rem;
+    width: 29rem;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0%;
+}
+
+.footer > img{
+    margin-right: 2%;
+}
+
+.footer > span{
+    position: relative;
+    top: 6%;
+}
+
+*{
+    /* border: 2px solid red; */
+}

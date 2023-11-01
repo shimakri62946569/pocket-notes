@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import Leftsidebar from './components/Leftsidebar';
 import Default from './components/Default';
+import Write from './components/Write';
 import './App.css';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
             <Leftsidebar></Leftsidebar>
         </div>
         <div className='default'>
-            <Default></Default>
+            {/* <Default></Default> */}
+            <Write></Write>
         </div>
     </div>
   );

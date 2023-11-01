@@ -1,0 +1,24 @@
+.container > p{
+    width: 40rem;
+    font-family: roboto;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.3rem;
+}
+
+.date_section{
+   display: flex;
+   flex-direction: column;
+   margin-right: 3%;
+   font-family: roboto;
+   font-weight: 500;
+   font-size: 0.9rem;
+   line-height: 1.3rem;
+}
+
+.container{
+    display: flex;
+    margin-left: 3%;
+    /* justify-content: space-evenly; */
+}
+
