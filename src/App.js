@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Leftsidebar from './components/Leftsidebar';
 import Default from './components/Default';
 import Write from './components/Write';
@@ -27,7 +27,6 @@ function App() {
     if (userName !== '' && userColor !== '') {
       setTake(!take);
       setInput(false);
-
       const newUser = {
         id: id,
         userName: userName,
@@ -42,6 +41,7 @@ function App() {
   }
 
   return (
+    <Router>
     <div className='container'>
       <div className='dark_overlay' style={{ display: input ? 'flex' : 'none' }}>
         <div className='create_group'>
@@ -66,10 +66,14 @@ function App() {
         <Leftsidebar take={take} setInput={setInput}></Leftsidebar>
       </div>
       <div className='default'>
-        <Default></Default>
-        {/* <Write></Write> */}
+        {/* <Default></Default> */}
+          <Routes>
+            <Route path='/write/:noteId' element={<Write></Write>}></Route>
+            <Route path='/' element={<Default></Default>}></Route>
+          </Routes>
       </div>
     </div>
+    </Router>
   );
 }
 

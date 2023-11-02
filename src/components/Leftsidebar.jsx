@@ -4,6 +4,7 @@ import Note from './Note';
 
 const Leftsidebar = ({ take, setInput }) => {
   const [data, setData] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     const storedUsersJSON = localStorage.getItem('users');
@@ -12,6 +13,10 @@ const Leftsidebar = ({ take, setInput }) => {
       setData(storedUsers);
     }
   }, [take]);
+
+  const handleNoteSelect = (noteId) => {
+    setSelectedNote(noteId);
+  };
 
   return (
     <div className={`${styles.container} ${styles.roboto_500}`}>
@@ -24,10 +29,13 @@ const Leftsidebar = ({ take, setInput }) => {
           <div className={styles.notes}>
             {data.map((element) => (
               <Note
+                id={element.id}
                 key={element.id}
                 username={element.userName}
                 shortname={element.shortName}
                 usercolor={element.userColor}
+                isSelected={selectedNote === element.id} // Pass isSelected prop
+                onSelect={() => handleNoteSelect(element.id)} // Pass onSelect prop
               />
             ))}
           </div>

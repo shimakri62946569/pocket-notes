@@ -1,14 +1,26 @@
 import React, { useState } from 'react'
 import styles from '../styles/notes.module.css'
+import { Link, useNavigate } from 'react-router-dom'
 
-const Note = ({username, shortname, usercolor}) => {
+const Note = ({id, username, shortname, usercolor, isSelected, onSelect }) => {
+  const [bg, setBg] = useState(false)
+  const navigate = useNavigate()
   return (
-    <div className={styles.container}>
-      <div className={styles.circle} style={{backgroundColor: `${usercolor}`}}>
-            <span>{shortname}</span>
+    <Link
+      to={`/write/${id}`}
+      style={{ backgroundColor: isSelected ? '#F7ECDC' : '' }}
+      className={styles.container}
+      onClick={() => {
+        setBg(!bg);
+        onSelect();
+        navigate('/write');
+      }}
+    >
+      <div className={styles.circle} style={{ backgroundColor: `${usercolor}` }}>
+        <span>{shortname}</span>
       </div>
       <p>{username}</p>
-    </div>
+    </Link>
   )
 }
 

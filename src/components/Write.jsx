@@ -4,8 +4,10 @@ import Note from './Note'
 import sendimg from '../assets/sendimg.png'
 import backimg from '../assets/backimg.png'
 import Text from './Text'
+import { useParams } from 'react-router-dom'
 
 const Write = () => {
+  const { noteId } = useParams();
   return (
     <div className={styles.container}>
       <header>

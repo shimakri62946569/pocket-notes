@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
 body, html{
   height: 100vh;
   width: 100%;
@@ -147,6 +152,7 @@ body, html{
 
     .default{
       display: none;
+      /* width: 100%; */
     }
 
     .create_group{
