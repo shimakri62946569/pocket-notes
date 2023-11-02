@@ -24,16 +24,14 @@ function App() {
         shortName: userName[0]+userName[1],
       };
       setUsers([...users, newUser]);
+      const updatedUsersJSON = JSON.stringify([...users, newUser]);
+      localStorage.setItem('users', updatedUsersJSON)
     }
     else{
       return
     }
   }
-
-  useEffect( () => {
-    const usersJSON = JSON.stringify(users);
-    localStorage.setItem('users', usersJSON)
-  }, [users])
+  
   
   return (
     <div className='container'>

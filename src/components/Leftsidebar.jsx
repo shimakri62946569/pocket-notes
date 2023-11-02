@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from '../styles/leftsidebar.module.css'
 import Note from './Note'
 
 const Leftsidebar = ({setInput}) => {
-  
+  useEffect( () => {
+    
+  }, [])
   return (
     <div className={`${styles.container} ${styles.roboto_500}`}>
       <p className={styles.p}>Pocket Notes</p>
@@ -12,12 +14,7 @@ const Leftsidebar = ({setInput}) => {
         <div className={styles.items}>
             <div className={styles.notes}>
                 <Note></Note>
-                <Note></Note>
-                <Note></Note>
-                <Note></Note>
-                <Note></Note>
-                <Note></Note>
-                <Note></Note>
+                
 
                 {/* <Note></Note>
                 <Note></Note>
