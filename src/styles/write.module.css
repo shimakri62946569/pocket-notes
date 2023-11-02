@@ -13,6 +13,12 @@
     height: 10.5%;
 }
 
+.container > header > img{
+    margin: 0% 2%;
+    height: 0.9rem;
+    display: none;
+}
+
 .container > main{
     background-color: #F7ECDC;
     height: 60%;

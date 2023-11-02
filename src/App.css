@@ -24,3 +24,159 @@ body, html{
   height: 100vh;
   width: 75%;
 }
+
+.dark_overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: 999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.create_group{
+  height: 15rem;
+  width: 35rem;
+  background-color: #fff;
+  font-family: roboto;
+  font-weight: 500;
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.color1{
+  background-color: #B38BFA;
+}
+
+.color2{
+  background-color: #FF79F2;
+}
+
+.color3{
+  background-color: #43E6FC;
+}
+
+.color4{
+  background-color: #F19576;
+}
+
+.color5{
+  background-color: #0047FF;
+}
+
+.color6{
+  background-color: #6691FF;
+}
+
+.create_group > span, .create_group > div > span{
+  margin-right: 5%;
+}
+
+.create_group > div{
+    display: flex;
+}
+
+.p{
+    padding-left: 4%;
+} 
+
+.name, .colors{
+  padding-left: 6%;
+}
+
+.create_group > span{
+  width: 100%;
+  display: block;
+}
+
+.create_group > span > input{
+  height: 2.5rem;
+  width: 55%;
+  padding-left: 2%;
+  margin-left: 3%;
+  border-radius: 0.8rem;
+  border: 1px solid #CCCCCC;
+  outline: none;
+  font-size: 1rem;
+}
+
+.create_group > div > .div{
+  display: inline-block;
+  margin-right: 2%;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.create_group > div > button{
+  font-family: roboto;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #fff;
+  height: 2rem;
+  width: 7.5rem;
+  background-color: black;
+  border: none;
+  border-radius: 0.5rem;
+  position: relative;
+  right: 3%;
+}
+
+.btn_section{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* *{
+  border: 1px solid red;
+} */
+
+@media screen and (max-width: 500px) {
+    .leftsidebar{
+      width: 100%;
+    }
+
+    .default{
+      display: none;
+    }
+
+    .create_group{
+      height: 17rem;
+      width: 25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .create_group > div > .div{
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    .create_group > div > button{
+      width: 17rem;
+      height: 3rem;
+      right: 0%;
+      font-size: 1.5rem;
+    }
+
+    .create_group > div{
+      display: flex;
+      justify-content: center;
+    }
+
+    .p, .name, .colors{
+      padding-left: 3%;
+    }
+
+    
+}
