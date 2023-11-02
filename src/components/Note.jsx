@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import styles from '../styles/notes.module.css'
 
-const Note = () => {
+const Note = ({username, shortname, usercolor}) => {
   return (
     <div className={styles.container}>
-      <div className={styles.circle}>
-            <span>CU</span>
+      <div className={styles.circle} style={{backgroundColor: `${usercolor}`}}>
+            <span>{shortname}</span>
       </div>
-      <p>Cuvette Notes</p>
+      <p>{username}</p>
     </div>
   )
 }
