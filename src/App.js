@@ -6,7 +6,7 @@ import './App.css';
 import { useEffect, useState, useRef  } from 'react';
 
 function App() {
-  
+  const [nav, setNav] = useState(true)
   const [take, setTake] = useState(false)
   const [input, setInput] = useState(false);
   const [userName, setUserName] = useState('');
@@ -88,7 +88,7 @@ function App() {
       <div className='default'>
         {/* <Default></Default> */}
           <Routes>
-            <Route path='/write/:noteId' element={<Write users={users}></Write>}></Route>
+            <Route path='/write/:noteId' element={<Write setNav={setNav} users={users}></Write>}></Route>
             <Route path='/' element={<Default></Default>}></Route>
           </Routes>
 

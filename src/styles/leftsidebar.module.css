@@ -63,3 +63,13 @@
     margin-right: -10%;
     font-size: 1.5rem;
 }
+
+@media screen and (max-width: 500px){
+    .btn_and_notes > button{
+        margin-left: 10%;
+    }
+
+    .container > p{
+        margin-left: 5%;
+    }
+}

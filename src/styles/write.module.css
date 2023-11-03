@@ -53,3 +53,19 @@
     border-radius: 0.5rem;
     resize: none;
 }
+
+@media screen and (max-width: 500px){
+    .container > header > img{
+        display: block;
+        margin-left: 1.3rem;
+    }
+
+    .container > main{
+        height: 75%;
+    }
+
+    .container > footer{
+        height: 17.5%;
+        border-bottom-left-radius: 0rem;
+    }
+}

@@ -4,9 +4,10 @@ import Note from './Note';
 import sendimg from '../assets/sendimg.png';
 import backimg from '../assets/backimg.png';
 import Text from './Text';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const Write = ({ users }) => {
+const Write = ({setNav, users }) => {
+  const navigate = useNavigate()
   const { noteId } = useParams();
   const [userName, setUserName] = useState('');
   const [userColor, setUserColor] = useState('');
@@ -81,10 +82,16 @@ const Write = ({ users }) => {
     setNewText('');
   }
 
+  const handleBack = (e) => {
+      e.preventDefault()
+      navigate('/')
+      setNav(true)
+  }
+
   return (
     <div className={styles.container}>
       <header>
-        <img src={backimg} alt="" />
+        <img onClick={handleBack} src={backimg} alt="" />
         <Note username={userName} usercolor={userColor} shortname={shortname}></Note>
       </header>
       <main>
