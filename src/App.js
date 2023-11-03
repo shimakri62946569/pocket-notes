@@ -68,7 +68,7 @@ function App() {
       <div className='default'>
         {/* <Default></Default> */}
           <Routes>
-            <Route path='/write/:noteId' element={<Write></Write>}></Route>
+            <Route path='/write/:noteId' element={<Write users={users}></Write>}></Route>
             <Route path='/' element={<Default></Default>}></Route>
           </Routes>
       </div>
