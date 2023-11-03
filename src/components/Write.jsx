@@ -29,30 +29,45 @@ const Write = ({ users }) => {
     setNewText(e.target.value);
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Prevent the default behavior (creating a new line)
+      handleSubmit();
+    }
+  }
+
+  const formatDate = (dateString) => {
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   const handleSubmit = () => {
-    console.log('submit run');
     const updatedUsers = users.map((user) => {
       if (user.id === parseInt(noteId)) {
         user.texts = user.texts || {};
-  
+
         // Increment the textCount and timeCount
         user.textCount = (user.textCount || 0) + 1;
-  
+
         // Create a new text entry object
         user.texts[`text${user.textCount}`] = {
           data: newText,
-          date: new Date().toLocaleDateString(),
+          date: formatDate(new Date()), // Format the date
           time: new Date().toLocaleTimeString(),
         };
-  
+
         return user;
       }
       return user;
     });
-  
+
     // Update the component state to reflect the changes
     setMyTexts(Object.values(updatedUsers.find((user) => user.id === parseInt(noteId)).texts || {}));
-    
+
     // Update localStorage with the updated array while keeping existing data intact
     const updatedArray = users.map((user) => {
       if (user.id === parseInt(noteId)) {
@@ -61,9 +76,10 @@ const Write = ({ users }) => {
       return user;
     });
     localStorage.setItem('users', JSON.stringify(updatedArray));
+
+    // Clear the textarea
+    setNewText('');
   }
-  
-  
 
   return (
     <div className={styles.container}>
@@ -82,11 +98,15 @@ const Write = ({ users }) => {
             time={text.time}
           ></Text>
         ))}
-        <br />
-        <br />
+
       </main>
       <footer>
-        <textarea onChange={handleText} placeholder='Enter your text here...........' value={newText}></textarea>
+        <textarea
+          onChange={handleText}
+          onKeyDown={handleKeyDown}
+          placeholder='Enter your text here...........'
+          value={newText}
+        ></textarea>
         <img onClick={handleSubmit} src={sendimg} alt="" />
       </footer>
     </div>

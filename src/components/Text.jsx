@@ -7,6 +7,8 @@ const Text = ({time, date, data}) => {
       <div className={styles.date_section}>
         <span>{time}</span>
         <span>{date}</span>
+        <br />
+        <br />
       </div>
       <p>{data}</p>
     </div>

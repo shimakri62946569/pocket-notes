@@ -58,6 +58,10 @@ body, html{
   justify-content: space-around;
 }
 
+.selected_color {
+  border: 2px solid black; 
+}
+
 .color1{
   background-color: #B38BFA;
 }
@@ -141,9 +145,6 @@ body, html{
     justify-content: flex-end;
 }
 
-/* *{
-  border: 1px solid red;
-} */
 
 @media screen and (max-width: 500px) {
     .leftsidebar{
