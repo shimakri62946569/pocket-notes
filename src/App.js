@@ -33,12 +33,18 @@ function App() {
         userColor: userColor,
         shortName: userName[0] + userName[1],
       };
-
+  
       setId(id + 1);
-      setUsers((prevUsers) => [...prevUsers, newUser]);
-      localStorage.setItem('users', JSON.stringify([...users, newUser]));
+  
+      // Create a new array with the updated data
+      const newUsers = [...users, newUser];
+      setUsers(newUsers);
+  
+      // Update localStorage with the new array
+      localStorage.setItem('users', JSON.stringify(newUsers));
     }
   }
+  
 
   return (
     <Router>
@@ -71,6 +77,7 @@ function App() {
             <Route path='/write/:noteId' element={<Write users={users}></Write>}></Route>
             <Route path='/' element={<Default></Default>}></Route>
           </Routes>
+
       </div>
     </div>
     </Router>
