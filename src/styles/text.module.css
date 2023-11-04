@@ -9,7 +9,7 @@
 .date_section{
    display: flex;
    flex-direction: column;
-   margin-right: 4%;
+   margin-right: 3%;
    font-family: roboto;
    font-weight: 500;
    font-size: 0.9rem;
@@ -19,15 +19,14 @@
 .container{
     display: flex;
     margin-left: 3%;
-    /* justify-content: space-evenly; */
 }
 
 @media screen and (max-width: 500px){
-    .date_section{
-        margin-right: 7%;
+    .container > p{
+        width: 50%;
     }
 
-    .container > p{
-        width: 15rem;
+    .date_section{
+        margin-right: 10%;
     }
 }

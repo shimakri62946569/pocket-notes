@@ -6,7 +6,7 @@ import './App.css';
 import { useEffect, useState, useRef  } from 'react';
 
 function App() {
-  const [nav, setNav] = useState(true)
+  
   const [take, setTake] = useState(false)
   const [input, setInput] = useState(false);
   const [userName, setUserName] = useState('');
@@ -50,15 +50,23 @@ function App() {
       setColor4(false)
       setColor5(false)
       setColor6(false)
-      // Create a new array with the updated data
       const newUsers = [...users, newUser];
       setUsers(newUsers);
       
-      // Update localStorage with the new array
       localStorage.setItem('users', JSON.stringify(newUsers));
     }
   }
-  
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 500);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <Router>
@@ -82,17 +90,27 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='leftsidebar'>
-        <Leftsidebar take={take} setInput={setInput}></Leftsidebar>
-      </div>
-      <div className='default'>
-        {/* <Default></Default> */}
-          <Routes>
-            <Route path='/write/:noteId' element={<Write setNav={setNav} users={users}></Write>}></Route>
-            <Route path='/' element={<Default></Default>}></Route>
-          </Routes>
-
-      </div>
+      {
+        isMobile ? 
+          <>
+            <Routes>
+                <Route path='/' element={<Leftsidebar take={take} setInput={setInput} isMobile={isMobile}></Leftsidebar>}></Route>
+                <Route path='/write/:noteId' element={<Write users={users}></Write>}></Route>
+            </Routes>
+          </>
+        :
+          <>
+            <div className='leftsidebar'>
+              <Leftsidebar take={take} setInput={setInput}></Leftsidebar>
+            </div>
+            <div className='default'>
+              <Routes>
+                <Route path='/write/:noteId' element={<Write users={users}></Write>}></Route>
+                <Route path='/' element={<Default></Default>}></Route>
+              </Routes>
+            </div>
+          </>
+      }
     </div>
     </Router>
   );

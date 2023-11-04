@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../styles/notes.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Note = ({id, username, shortname, usercolor, isSelected, onSelect }) => {
+const Note = ({isMobile, id, username, shortname, usercolor, isSelected, onSelect }) => {
   const [bg, setBg] = useState(false)
   const navigate = useNavigate()
   return (

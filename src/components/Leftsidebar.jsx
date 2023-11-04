@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../styles/leftsidebar.module.css';
 import Note from './Note';
 
-const Leftsidebar = ({ take, setInput }) => {
+const Leftsidebar = ({ isMobile, take, setInput }) => {
   const [data, setData] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
 
@@ -23,19 +23,20 @@ const Leftsidebar = ({ take, setInput }) => {
       <p className={styles.p}>Pocket Notes</p>
       <div className={styles.btn_and_notes}>
         <button onClick={() => setInput(true)} className={styles.roboto_500}>
-          <span style={{marginRight: '0rem'}}>+</span>Create Notes group
+          <span>+</span>Create Notes group
         </button>
         <div className={styles.items}>
           <div className={styles.notes}>
             {data.map((element) => (
               <Note
+                isMobile={isMobile}
                 id={element.id}
                 key={element.id}
                 username={element.userName}
                 shortname={element.shortName}
                 usercolor={element.userColor}
-                isSelected={selectedNote === element.id} // Pass isSelected prop
-                onSelect={() => handleNoteSelect(element.id)} // Pass onSelect prop
+                isSelected={selectedNote === element.id} 
+                onSelect={() => handleNoteSelect(element.id)} 
               />
             ))}
           </div>
