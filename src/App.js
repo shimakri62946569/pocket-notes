@@ -71,8 +71,8 @@ function App() {
   return (
     <Router>
     <div className='container'>
-      <div className='dark_overlay' style={{ display: input ? 'flex' : 'none' }}>
-        <div className='create_group'>
+      <div onClick={(e) => {setInput(false); e.stopPropagation()}} className='dark_overlay' style={{ display: input ? 'flex' : 'none' }}>
+        <div onClick={(e) => e.stopPropagation()} className='create_group'>
           <p className='p'>Create New Notes group</p>
           <span className='name'>Group Name <input ref={userNameRef} onChange={(e) => setUserName(e.target.value)} type="text" placeholder='Enter your group name....' /></span>
           
