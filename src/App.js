@@ -1,18 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Leftsidebar from './components/Leftsidebar';
 import Default from './components/Default';
 import Write from './components/Write';
 import './App.css';
 import { useEffect, useState, useRef  } from 'react';
 
-function App() {
+function App() { 
   
   const [take, setTake] = useState(false)
   const [input, setInput] = useState(false);
   const [userName, setUserName] = useState('');
   const [userColor, setUserColor] = useState('');
   const [users, setUsers] = useState([]);
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(0); 
 
   const userNameRef = useRef();
   const [color1, setColor1] = useState(false)
@@ -40,7 +40,7 @@ function App() {
         id: id,
         userName: userName,
         userColor: userColor,
-        shortName: userName[0] + userName[1],
+        shortName: userName[0].toUpperCase() + userName[1].toUpperCase(),
       };
       setId(id + 1);
       userNameRef.current.value = '';
@@ -67,7 +67,7 @@ function App() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
+  
   return (
     <Router>
     <div className='container'>
