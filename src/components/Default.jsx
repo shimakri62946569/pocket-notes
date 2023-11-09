@@ -8,7 +8,7 @@ const Default = () => {
   return (
     <div className={styles.container}>
       <section className={styles.content}>
-          <img src={notesimg} alt="image" />
+          <img src={notesimg} alt="img" />
           <p className={styles.heading}>Pocket Notes</p>
           <br />
           <p className={styles.description}>Send and receive messages without keeping your phone online.
